@@ -1,0 +1,86 @@
+/* Identidad Lorena Garay — marco común a todas las páginas */
+:root{
+  --papel:#F5F1E8; --tinta:#1B1A16; --tinta-2:#4A4540; --oro:#B89142; --oro-suave:#D9C49A; --linea:#DDD3C0;
+  --serif:"Libre Baskerville",Georgia,"Times New Roman",serif;
+  --sans:"Work Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --papel:#1B1A16; --tinta:#F2ECE0; --tinta-2:#C9BFAE; --linea:#3A362F; }
+}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--papel);color:var(--tinta);font-family:var(--sans);font-size:1rem;line-height:1.55;min-height:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--oro);outline-offset:3px}
+.contenedor{max-width:640px;margin:0 auto;padding:0 20px}
+
+/* Encabezado */
+.cabecera{padding:18px 0 14px;border-bottom:1px solid var(--linea)}
+.cabecera .contenedor{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cabecera img{height:44px;width:auto}
+.cabecera a.volver{font-size:.85rem;color:var(--tinta-2);text-decoration:none;border-bottom:1px solid var(--oro-suave);padding-bottom:1px}
+
+/* Recurso de marca: líneas de plano que se cruzan y pasan de largo en las esquinas */
+.plano{position:relative}
+.plano::before{
+  content:"";position:absolute;inset:-9px;pointer-events:none;
+  --g:linear-gradient(var(--oro),var(--oro));
+  background:
+    var(--g) 0 9px / 100% 1.5px no-repeat,
+    var(--g) 0 calc(100% - 9px) / 100% 1.5px no-repeat,
+    var(--g) 9px 0 / 1.5px 100% no-repeat,
+    var(--g) calc(100% - 9px) 0 / 1.5px 100% no-repeat;
+}
+
+/* Rótulo: la ficha del proyecto, como el rótulo de un plano */
+.intro{padding:34px 0 30px}
+.intro h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,8vw,2.6rem);line-height:1.15;letter-spacing:.01em}
+.intro .bajada{margin-top:8px;color:var(--tinta-2);font-size:1.05rem}
+.rotulo{margin-top:26px;display:grid;grid-template-columns:1fr 1fr}
+.rotulo div{padding:12px 14px;border-top:1px solid var(--linea)}
+.rotulo div:nth-child(-n+2){border-top:0}
+.rotulo div:nth-child(odd){border-right:1px solid var(--linea)}
+.rotulo dt{font-size:.78rem;color:var(--tinta-2)}
+.rotulo dd{font-family:var(--serif);font-size:1.05rem;margin-top:2px}
+
+/* Galería de piezas del desarrollo */
+.galeria{display:flex;flex-direction:column;gap:0}
+.galeria img{width:100%}
+
+/* Otras propuestas */
+.otras{padding:48px 0 8px}
+.otras h2,.cierre h2,.catalogo h1{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.25}
+.otras p.guia{color:var(--tinta-2);margin-top:6px}
+.tarjetas{list-style:none;display:grid;gap:30px;margin-top:28px}
+.tarjeta a{display:block;text-decoration:none}
+.tarjeta img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.tarjeta .datos{padding:14px 2px 4px}
+.tarjeta h3{font-family:var(--serif);font-weight:400;font-size:1.2rem}
+.tarjeta .zona{color:var(--tinta-2);font-size:.92rem}
+.ver-todas{display:inline-block;margin-top:26px;text-decoration:none;border-bottom:1px solid var(--oro);padding-bottom:2px}
+
+/* Cierre con la asesora */
+.cierre{padding:52px 0 40px;text-align:center}
+.cierre img.iso{width:84px;margin:0 auto 18px}
+.cierre p{color:var(--tinta-2);max-width:34ch;margin:10px auto 0}
+.pie{padding:26px 0 130px;border-top:1px solid var(--linea);text-align:center;font-size:.85rem;color:var(--tinta-2)}
+.pie img{width:200px;margin:0 auto 12px}
+
+/* Botón fijo de WhatsApp */
+.cta-barra{position:fixed;left:0;right:0;bottom:0;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(0deg,var(--papel) 55%,transparent);display:flex;justify-content:center}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:520px;
+  background:#1B1A16;color:#F2ECE0;text-decoration:none;padding:15px 24px;font-weight:500;font-size:1rem;
+  border:1.5px solid var(--oro)}
+.cta svg{width:20px;height:20px;fill:var(--oro);flex-shrink:0}
+.cta:active{opacity:.85}
+
+/* Catálogo */
+.catalogo{padding:34px 0 10px}
+.catalogo p.guia{color:var(--tinta-2);margin-top:8px;max-width:40ch}
+.vacio{margin-top:24px;color:var(--tinta-2)}
+@media (prefers-reduced-motion:no-preference){ .tarjeta img{transition:opacity .2s} .tarjeta a:active img{opacity:.8} }
