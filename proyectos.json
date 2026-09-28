@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "altos-nativo",
+    "nombre": "Altos Nativo",
+    "tipo": "Barrio cerrado",
+    "zona": "Altos",
+    "agencia": null,
+    "activo": true
+  }
+]
